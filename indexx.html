@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Мамандығы - Цифрлық Болашақ</title>
+    <style>
+        :root {
+            --dark: #0e0416;;
+            --neon-blue: #00f7ff;
+            --neon-purple: #b700ff;
+            --glass: rgba(255, 255, 255, 0.08);
+            --text-light: rgba(255, 255, 255, 0.85);
+            --section-spacing: 100px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.85);;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0, 247, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(183, 0, 255, 0.05) 0%, transparent 50%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+        
+   
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 25px 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        section {
+            min-height: 100vh;
+            padding: 120px 0 var(--section-spacing);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .section-content {
+            width: 100%;
+              color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            
+        }
+        
+        h1 {
+          
+            font-size: 4.5rem;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 100px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-bottom: 40px;
+        }
+        
+        li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+        
+        li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+        }
+        
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
+        }
+        
+
+        #home {
+            text-align: center;
+        }
+        
+        #definition .section-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        #definition-image {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(183, 0, 255, 0.1));
+            border-radius: 20px;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 5px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        #goals ul {
+            columns: 2;
+            column-gap: 60px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .stat-item {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+       
+        footer {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+            color: var(--dark);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            #definition .section-content {
+                grid-template-columns: 1fr;
+            }
+            
+            #definition-image {
+                order: -1;
+            }
+            
+            #goals ul {
+                columns: 1;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">My profession</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Басты бет</a>
+                <a href="#definition" class="nav-link">Анықтама</a>
+                <a href="#goals" class="nav-link">Мақсатты</a>
+                <a href="#learning" class="nav-link">Бағыттары</a>
+                <a href="#benefits" class="nav-link">Артықшылықтары</a>
+                <a href="#conclusion" class="nav-link">Қорытынды</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <div class="section-content">
+                <h1>IT мамандығы -<br/>
+                  болашақтың кілті</h1>
+                    <h2></h2>
+                <p>IT- тек бір мамандық емес,үлкен бағыттар жүйесі.Әр адам өз қызығушылығына қарай дамып,
+                    болашағына өзі қалыптастыра алады.Заман талабына сай болғасы келетін жастар үшін бұл сала-ең тиімді таңдау.
+                </p>
+                <a href="#definition" class="btn">Толығырақ білу</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="definition">
+        <div class="container">
+            <div class="section-content">
+                <div>
+                    <h2>IT мамандығы деген не?</h2>
+                    <p>Ақпараттық технологиялар (IT) мамандығы – студенттерге бағдарламалау, веб және мобильді қосымша жасау, компьютерлік желілерді басқару, 
+                        деректерді өңдеу және сақтау, ақпараттық қауіпсіздік пен жаңа технологияларды(жасанды интеллект, машиналық оқыту) қолдану дағдыларын үйрететін мамандық.</p>
+                    <p>IT мамандығы - бұл келесіге қатысты білімдер мен дағдылар жиынтығы:</p>
+                    <ul>
+                        <li>Компьютерлік жүйелер мен желілер</li>
+                        <li>Бағдарламалық жасақтамалар</li>
+                        <li>Деректер базалары</li>
+                        <li>Киберқауіпсіздік</li>
+                        <li>Жасанды интеллект</li>
+                        <li>Бұлттық технологиялар</li>
+                    </ul>
+                </div>
+                <div id="definition-image">
+                    <img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="IT Definition" style="width:100%; border-radius:10px;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="goals">
+        <div class="container">
+            <div class="section-content">
+                <h2>Мақсаты</h2>
+                <p>Ақпараттық технологиялар саласында заманауи білім мен дағдысы бар, технологияларды тиімді қолдана алатын, 
+                    бағдарламалық өнімдер жасап, ақпараттық жүйелерді басқара алатын білікті IT мамандарын даярлау.</p>
+                    <h2>Міндеттері</h2>
+                    <ul>
+                    <li>Бағдарламалау, веб-дамыту, желілік технологиялар бойынша білім беру</li>
+                    <li>Ақпараттық қауіпсіздік пен деректерді басқару дағдыларын қалыптастыру</li>
+                    <li>Жаңа технологияларды (AI, Big Data, Cloud) меңгерту</li>
+                    <li>Студенттің логикалық ойлауын және шығармашылық қабілетін дамыту</li>
+                    <li>Командалық және жобалық жұмысқа үйрету</li>
+                    <li>Ғылыми-зерттеу және кәсіпкерлікке бағыттау</li>
+                    <li>Үздіксіз оқу және инновацияларды игеру</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="learning">
+        <div class="container">
+            <div class="section-content">
+                <h2><center>Бағыттары</center> </h2>
+                
+                <h3 style="font-size:1.8rem; margin:40px 0 20px; color:var(--neon-blue)">Негізгі бағдарламалау тілдері:</h3>
+                <ul>
+                    <li>Веб-дамыту (HTML, CSS, React, Node.js)</li>
+                    <li>Мобильді қосымшалар (Android, iOS, Flutter)</li>
+                    <li>Деректер ғылымы және AI (TensorFlow, PyTorch)</li>
+                    <li>Киберқауіпсіздік пен этикалық хакерлік</li>
+                    <li>Блокчейн және криптовалюта технологиялары</li>
+                    <li>Областық есептеулер (AWS, Azure, Google Cloud)</li>
+                    <li>DevOps және контейнеризация (Docker, Kubernetes)</li>
+                </ul>
+                
+                <h3 style="font-size:1.8rem; margin:40px 0 20px; color:var(--neon-blue)">не үйретеді?</h3>
+                <ul>
+                    <li>Жобалармен жұмыс істеу</li>
+                        <li>Код жазу, логикалық ойлау</li>
+                        <li>Проблема шешу дағдылары</li>
+                        <li>Командалық жұмыс</li>
+                        <li>Технологияны бизнеске қолдану</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+   
+    <section id="benefits">
+        <div class="container">
+            <div class="section-content">
+                <h2> Артықшылықтары</h2>
+                <p>Заман талабына сай болғысы келетін жастар үшін бұл сала - ең тиімді таңдау</p>
+                <ul>
+                    <li><strong>Жоғары сұраныс:</strong> Әлем бойынша  IT мамандығына сұраныс артып келеді.Бұл салада жұмыс табу мүмкіндігі жоғары.</li>
+                    <li><strong>Жоғары жалақы:</strong>  Бағдарламашы,веб-әзірлеуші,деректер аналитигі сияқты мамандықтар жақсы табыс әкеледі.</li>
+                    <li><strong>Қашықтан жұмыс істеу:</strong>  Үйден немесе әлемнің кез-келген нүктесінен жұмыс істеуге болады.Бұл еркіндік береді.</li>
+                    <li><strong>Үздіксіз даму:</strong> Технологиялар тез өзгеріп отырады, яғни үздіксіз жаңа нәрселер үйренуге тура келеді</li>
+                    <li><strong>Шығармашылық:</strong>  Жаңа өнім ойлап табу,қолданбалар мен сайттар жасауөкреативті ойлауды талап етеді.</li>
+                    <li><strong>Көп саламен байланыс:</strong> IT медицинада,білімде,қаржыда,өнерде,ойын индустриясында-барлық жерде өолданылады</li>
+                    <li><strong>Стартап немесе жеке іс бастауға:</strong>  Өз ойыңды іске асырып,жеке жобалар жасап,кәсіп бастау мүмкіндігі бар</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+   
+    <section id="conclusion">
+        <div class="container">
+            <div class="section-content">
+                <h2>Қорытынды</h2>
+                <p>Қазіргі таңда IT саласы - әлемдегі ең динамикалық дамып келе жатқан салалардың бірі. 2023 жылғы статистика бойынша:</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">28.7M</div>
+                        <div class="stat-label">IT мамандары әлемде</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">13%</div>
+                        <div class="stat-label">Жыл сайынғы өсу қарқыны</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$105K</div>
+                        <div class="stat-label">Орташа жалақы (АҚШ)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500K+</div>
+                        <div class="stat-label">Ашық бос орындар</div>
+                    </div>
+                </div>
+                
+               <br> <p>IT мамандығын оқыған адамдар  танымал компанияларда жұмыс істеп : Google, Microsoft, Amazon, Facebook, Tesla, SpaceX және басқа да технологиялық алыптары.</p>
+                <p>Қазақстанда да IT саласы белсенді түрде дамып келеді.
+                    Astana Hub, Almaty Tech Garden сынды ірі технологиялық кластерлер жұмыс істеп, жас мамандарға қолдау көрсетуде.
+                        <br>🔹 Отандық IT компаниялар халықаралық нарықта өз орнын таба бастады.
+                        <br/>🔹 Жастар стартаптар ашып, әлемдік деңгейдегі жобалар жасауда.</p>
+                <p><b>IT – </b>болашақтың мамандығы. Бұл салада білім алған адам – тек жақсы жұмыс емес, әлемдік деңгейдегі мүмкіндіктерге жол ашады.!</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2 style="margin-bottom:30px;">IT Мамандығы</h2>
+                <p><b><i>Цифрлық болашаққа қадам басуға дайынсыз ба? Бізбен байланысыңыз!</i></b></p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2023 IT Мамандығы. Барлық құқықтар қорғалған.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
